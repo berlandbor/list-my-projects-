@@ -6,10 +6,10 @@ import { ListGenerator } from 'https://berlandbor.github.io/ExampleUseListGenera
 const myListGenerator = new ListGenerator("myListContainer");
 
 const myListItems = [
-  { text: "Что такое информатика?", link: "https://berlandbor.github.io/Informatics.md" },
-  { text: "Что такое информация?", link: "https://github.com/berlandbor/berlandbor.github.io/blob/main/what-is-information.md" },
-  { text: "Link to open code API-listGenerator.js", link: "https://github.com/berlandbor/ExampleUseListGenerator/blob/main/API-listGenerator.js" },
-  { text: "Link to open code library: listGenerator.js", link: "https://github.com/berlandbor/ExampleUseListGenerator/blob/main/listGenerator.js" }
+  /*{ text: "Что такое информатика?", link: "https://berlandbor.github.io/Informatics.md" },*/
+  { text: "Мой блог", link: "https://t.me/BerlandborBlog" },
+  { text: "Учебник по Python", link: "https://t.me/PythonTextbook" },
+  { text: "Заметки программиста", link: "https://t.me/NotesByProgrammer" }
 ];
 
 myListGenerator.generateList(myListItems);

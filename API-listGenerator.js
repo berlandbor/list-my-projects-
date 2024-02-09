@@ -9,7 +9,10 @@ const myListItems = [
   /*{ text: "Что такое информатика?", link: "https://berlandbor.github.io/Informatics.md" },*/
   { text: "Обученный Нейрон управляет мячиком:", link: "NeuronBall.html" },
   { text: "Генератор открытки: ", link: "https://berlandbor.github.io/gen-img/" },
-  { text: "Заметки программиста", link: "https://t.me/NotesByProgrammer" }
+  { text: "Библия онлайн:", link: "https://berlandbor.github.io/Bible-/" },
+  { text: "Энциклопедия онлайн:", link: "https://berlandbor.github.io/encyclopedia-berlandbor/" },
+  { text: "О лекарствах онлайн:", link: "https://berlandbor.github.io/Search-info-medicaments/" }
+  //{ text: "О лекарствах онлайн:", link: "https://berlandbor.github.io/Search-info-medicaments/" }
 ];
 
 myListGenerator.generateList(myListItems);

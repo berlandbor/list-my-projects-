@@ -23,7 +23,7 @@ class ListGenerator {
     const link = document.createElement("a");
     link.appendChild(document.createTextNode(item.text));
     link.href = item.link;
-
+    link.target = "_blank"; /*добавляем    атрибут target для открытия ссылки в новой вкладке*/
     li.appendChild(link);
 
     return li;

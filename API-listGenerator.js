@@ -12,7 +12,7 @@ const myListItems = [
   { text: "Библия онлайн:", link: "https://berlandbor.github.io/Bible-/" },
   { text: "Энциклопедия онлайн:", link: "https://berlandbor.github.io/encyclopedia-berlandbor/" },
   { text: "О лекарствах онлайн:", link: "https://berlandbor.github.io/Search-info-medicaments/" }
-  //{ text: "О лекарствах онлайн:", link: "https://berlandbor.github.io/Search-info-medicaments/" }
+  { text: "Обученный Нейрон управляет мячиком есть Рестарт:", link: "NeuronBallRestart.html" }
 ];
 
 myListGenerator.generateList(myListItems);

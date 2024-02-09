@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.5">
+  <title>Neuron Controlled Motion with p5.js</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+ <style>
+   button{
+     width:150px;
+     height: 70px;
+     font-size: 30px;
+   }
+ </style>
+</head>
+
+<body>
+  <h3>Пример 1: Один Искуственный Нейрон управляет мячиком. Если перезагрузить страницу, то изменится управление Нейрона мячиком.</h3>
+  <button onclick="restart()">Restart</button>
+  <script>
+    // Цвета
+    const WHITE = [255, 255, 255];
+    const RED = [255, 0, 0];
+
+    // Класс для нейрона
+    class Neuron {
+      constructor() {
+        // Веса для управления движением по оси X и оси Y
+        this.weights = [Math.random() * 2 - 1, Math.random() * 2 - 1];
+      }
+
+      activate(inputs) {
+        // Вычисляем выход нейрона как взвешенную сумму входов
+        return inputs.reduce((acc, val, index) => acc + val * this.weights[index], 0);
+      }
+    }
+
+    let neuron;
+    let x, y;
+    let speed_x, speed_y;
+
+    function setup() {
+      createCanvas(800, 600);
+      neuron = new Neuron();
+      x = width / 2;
+      y = height / 2;
+      speed_x = Math.random() * 6 - 3;
+      speed_y = Math.random() * 6 - 3;
+    }
+
+    function draw() {
+      // Преобразование текущих координат в диапазон [-1, 1]
+      const normalized_coords = [x / width, y / height];
+
+      // Получение управляющего сигнала от нейрона
+      const control_signal = neuron.activate(normalized_coords);
+
+      // Изменение скорости мячика в соответствии с управляющим сигналом
+      speed_x += control_signal;
+      speed_y += control_signal;
+
+      // Обновление координат мячика
+      x += speed_x;
+      y += speed_y;
+
+      // Отражение от стенок и предотвращение выхода за границы окна
+      if (x <= 0 || x >= width) {
+        speed_x = -speed_x;
+        x = constrain(x, 0, width);
+      }
+      if (y <= 0 || y >= height) {
+        speed_y = -speed_y;
+        y = constrain(y, 0, height);
+      }
+
+      // Очистка экрана
+      background(WHITE);
+
+      // Отрисовка мячика
+      fill(RED);
+      noStroke();
+      ellipse(x, y, 40, 40);
+    }
+
+    function restart() {
+      neuron = new Neuron();
+      x = width / 2;
+      y = height / 2;
+      speed_x = Math.random() * 6 - 3;
+      speed_y = Math.random() * 6 - 3;
+    }
+  </script>
+</body>
+</html>
